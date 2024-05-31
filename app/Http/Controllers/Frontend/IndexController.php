@@ -35,7 +35,7 @@ class IndexController extends Controller
         //    var_dump($data);
         //    echo"</pre>";
 	    
-	    if(count($data) > 0 || !empty($data) || $data != null){
+	    if($data->isNotEmpty() && count($data) > 0 && !empty($data) && $data != null){
 	        
 	        foreach($data as $row){
 	            
