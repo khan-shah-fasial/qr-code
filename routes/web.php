@@ -19,3 +19,5 @@ Route::get('/', function () {
 })->name('index');
 
 Route::get('/tag-qr-gen', [IndexController::class, 'create_bulk_tag_qr'])->name('tag_qr');
+
+Route::get('/bulk-qr-gen', [IndexController::class, 'create_bulk_qrimage'])->name('bulk_qr');
