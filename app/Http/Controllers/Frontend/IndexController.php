@@ -14,9 +14,9 @@ class IndexController extends Controller
 
     public function qr_gen($qrdigit){
 
-        return QrCode::size(100)
-        ->backgroundColor(0, 0, 225)
-        ->color(255, 255, 255)
+        return QrCode::size(115)
+        ->backgroundColor(255, 255, 225)
+        ->color(0, 0, 0)
         ->margin(1)
         ->generate(
             ''.$qrdigit.'',
@@ -114,7 +114,9 @@ class IndexController extends Controller
 
                 echo '<div>'.$qr.'</div>';
 
-                echo '<p style="margin: 0;position: absolute;left: 6px;font-size: 16px;margin-top: 1px;"><b>'.$qrdigit.' - BN:'.$book_no.'</b></p><br><br>';
+                echo '<style>body{ margin:0px; }</style>';
+
+                echo '<p style="margin: 0;position: absolute;left: 0px;font-size: 12px;margin-top: 1px;"><b>B'.$book_no.'-'.$qrdigit.'</b></p><br><br>';
 
 
 
