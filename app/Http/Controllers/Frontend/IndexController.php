@@ -15,7 +15,7 @@ class IndexController extends Controller
     public function qr_gen($qrdigit){
 
         return QrCode::size(115)
-        ->backgroundColor(255, 255, 225)
+        ->backgroundColor(255, 255, 255)
         ->color(0, 0, 0)
         ->margin(1)
         ->generate(
