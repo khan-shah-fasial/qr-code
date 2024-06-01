@@ -40,8 +40,9 @@ class IndexController extends Controller
     public function create_bulk_tag_qr(Request $request)
 	{
 	    $vyapari_id = $request->vyapari_id;
+        $receipt_no = $request->receipt_no;
 
-       $data = DB::table('app_qrcode')->where('vyapari_id', $vyapari_id)->get(['qrcode']);
+       $data = DB::table('app_qrcode')->where('vyapari_id', $vyapari_id)->where('receipt_no', $receipt_no)->get(['qrcode']);
 
         //    echo"<pre>";
         //    var_dump($data);
@@ -53,7 +54,7 @@ class IndexController extends Controller
 	            
 	            // $tag_no = $this->db->select(['certificate_no','tag_no'])->from('cattle_pre_booking')->where('certificate_no', $row->qrcode)->get()->row();
 
-                $tag_no = DB::table('cattle_pre_booking')->where('certificate_no', $row->qrcode)->get(['certificate_no','tag_no'])->first();
+                $tag_no = DB::table('cattle_pre_booking')->where('certificate_no', $row->qrcode)->where('receipt_no', $receipt_no)->get(['certificate_no','tag_no'])->first();
 	            
 	            if($tag_no || !empty($tag_no)){
 	                
